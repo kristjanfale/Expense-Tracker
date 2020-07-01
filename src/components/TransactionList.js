@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
+import Transaction from './Transaction';
 
-export class Transaction extends Component {
-  render() {
-    return (
-      <div className='transaction'>
-        <h3>History</h3>
-        <ul className='transaction-list'>
-          <li className='transaction-item'>
-            Item 1 <span>-300€</span>
-          </li>
-          <li className='transaction-item'>
-            Item 2 <span>-40€</span>
-          </li>
-          <li className='transaction-item'>
-            Item 3 <span>500€</span>
-          </li>
-        </ul>
-      </div>
-    );
-  }
-}
+import { GlobalContext } from '../context/GlobalState';
 
-export default Transaction;
+export const TransactionList = () => {
+  const context = useContext(GlobalContext);
+  const { transactions } = context;
+
+  return (
+    <div className='transaction'>
+      <h3>History</h3>
+      <ul className='transaction-list'>
+        {/* Map through transactions */}
+        {transactions.map((transaction) => (
+          <Transaction key={transaction.id} transaction={transaction} />
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default TransactionList;

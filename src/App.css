@@ -23,7 +23,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #646464;
+  background-color: #f4f4f4;
   color: #000;
 }
 
@@ -39,14 +39,13 @@
 
 /* In IncomeExpense.js */
 .income-expense {
-  background-color: rgb(0, 0, 0);
-  color: #fff;
+  background-color: #fff;
   width: 100%;
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid rgb(7, 148, 153);
+  border: 1px solid #000;
 }
 
 .income-expense div {
@@ -55,7 +54,7 @@
 }
 
 .income-expense div:first-child {
-  border-right: 1px solid rgb(7, 148, 153);
+  border-right: 1px solid #000;
 }
 
 .income-expense p {
@@ -72,7 +71,7 @@
   color: rgb(248, 70, 0);
 }
 
-/* In Transaction.js */
+/* In TransactionList.js */
 .transaction {
   width: 100%;
   margin: 10px 0;
@@ -80,20 +79,27 @@
 
 .transaction h3 {
   padding: 10px 0;
-  border-bottom: 1px solid rgb(7, 148, 153);
+  border-bottom: 1px solid #000;
 }
 
 .transaction-list {
   list-style: none;
   margin: 10px 0;
-  color: #fff;
 }
 
 .transaction-item {
   padding: 5px 10px;
   display: flex;
   justify-content: space-between;
-  background-color: #000;
+  background-color: #fff;
+}
+
+.negative {
+  border: 2px solid rgb(248, 70, 0);
+}
+
+.positive {
+  border: 2px solid rgb(0, 180, 105);
 }
 
 .transaction-item:not(:last-child) {
@@ -110,7 +116,7 @@
 
 .add-transaction h3 {
   padding: 0 0 10px;
-  border-bottom: 1px solid rgb(7, 148, 153);
+  border-bottom: 1px solid #000;
 }
 
 .form-control {
@@ -126,24 +132,23 @@
   display: block;
   width: 100%;
   padding: 10px;
-  color: #fff;
-  background-color: #000;
+  background-color: #fff;
   border: none;
 }
 
 .form-control input::placeholder {
   font-size: 14px;
-  color: rgb(170, 170, 170);
 }
 
 .form-control input:focus {
-  outline: none;
+  /* outline: none; */
 }
 
 input[type='submit'] {
   width: 100%;
   padding: 10px;
-  background-color: rgb(7, 148, 153);
+  background-color: #000;
+  color: #fff;
   border: none;
   font-size: 16px;
   font-weight: 700;
@@ -152,7 +157,7 @@ input[type='submit'] {
 }
 
 input[type='submit']:hover {
-  background-color: rgb(2, 205, 216);
+  background-color: rgb(39, 39, 39);
 }
 
 input[type='submit']:active,
