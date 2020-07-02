@@ -18,10 +18,13 @@ export const AddTransaction = () => {
     const newTransaction = {
       id: uuidv4(),
       description,
-      amount: parseInt(amount),
+      amount: +amount,
     };
 
     addTransaction(newTransaction);
+
+    setAmount(0);
+    setDescription('');
   };
 
   return (
@@ -44,6 +47,7 @@ export const AddTransaction = () => {
           </label>
           <input
             type='number'
+            step='0.01'
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder='Enter amount...'
