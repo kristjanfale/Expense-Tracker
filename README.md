@@ -1,3 +1,3 @@
 ## Expense Tracker
 
-This app was made with React and Context API.
+Made with React and Context API, to track your Expenses.
