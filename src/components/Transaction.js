@@ -9,6 +9,7 @@ export const Transaction = ({ transaction }) => {
         transaction.amount < 0 ? 'negative' : 'positive'
       }`}
     >
+      <span className='delete'>X</span>
       {transaction.description}{' '}
       <span>
         {sign}
