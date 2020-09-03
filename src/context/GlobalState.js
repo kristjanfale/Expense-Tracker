@@ -17,6 +17,18 @@ export const GlobalProvider = ({ children }) => {
 
   // ACTIONS
 
+  // Get transactions
+  function getTransactions() {
+    const transactions = JSON.parse(localStorage.getItem('transactions'));
+
+    if (transactions) {
+      dispatch({
+        type: 'GET_TRANSACTIONS',
+        payload: transactions,
+      });
+    }
+  }
+
   // Delete transaction
   function deleteTransaction(id) {
     dispatch({
@@ -37,6 +49,7 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
+        getTransactions,
         deleteTransaction,
         addTransaction,
       }}

@@ -8,9 +8,12 @@ export const Balance = () => {
   const { transactions } = context;
 
   let balance = 0;
-  transactions.map((transaction) => {
-    return (balance += transaction.amount);
-  });
+
+  if (transactions) {
+    transactions.map((transaction) => {
+      return (balance += transaction.amount);
+    });
+  }
 
   return (
     <div className='balance'>

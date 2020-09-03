@@ -15,13 +15,31 @@ export const AddTransaction = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const newTransaction = {
-      id: uuidv4(),
-      description,
-      amount: +amount,
-    };
+    if (description && amount) {
+      const newTransaction = {
+        id: uuidv4(),
+        description,
+        amount: +amount,
+      };
 
-    addTransaction(newTransaction);
+      addTransaction(newTransaction);
+
+      // Get transactions from Local Storage
+      var oldTransactions = JSON.parse(localStorage.getItem('transactions'));
+      let transactions = [];
+
+      // If there are no old transactions
+      if (!oldTransactions) {
+        transactions.push(newTransaction);
+        console.log(transactions);
+        // If there are old transactions
+      } else {
+        transactions = [newTransaction, ...oldTransactions];
+        console.log(transactions);
+      }
+      // Save transactions to LS
+      localStorage.setItem('transactions', JSON.stringify(transactions));
+    }
 
     setAmount(0);
     setDescription('');

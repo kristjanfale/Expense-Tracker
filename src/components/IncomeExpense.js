@@ -6,8 +6,12 @@ export const IncomeExpense = () => {
   const context = useContext(GlobalContext);
   const { transactions } = context;
 
+  let amount = [];
+
   // Get only amounts from transactions
-  const amount = transactions.map((transaction) => transaction.amount);
+  if (transactions) {
+    amount = transactions.map((transaction) => transaction.amount);
+  }
 
   // Filter positive amounts and add them together
   const income = amount

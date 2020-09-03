@@ -18,6 +18,12 @@ export const Transaction = ({ transaction }) => {
         className='delete'
         onClick={() => {
           deleteTransaction(transaction.id);
+
+          const oldTransactions = JSON.parse(
+            localStorage.getItem('transactions')
+          ).filter((oldtransaction) => oldtransaction.id !== transaction.id);
+
+          localStorage.setItem('transactions', JSON.stringify(oldTransactions));
         }}
       >
         X
